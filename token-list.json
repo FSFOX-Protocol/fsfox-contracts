@@ -1,0 +1,40 @@
+{
+  "name": "FSFOX Official Token List",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "timestamp": "2025-01-24T00:00:00.000Z",
+  "tags": {
+    "official": {
+      "name": "Official",
+      "description": "Official FSFOX token list - only includes the current active contract"
+    }
+  },
+  "logoURI": "https://polygonscan.com/images/svg/brands/polygon.svg",
+  "keywords": [
+    "fsfox",
+    "polygon",
+    "defi"
+  ],
+  "tokens": [
+    {
+      "chainId": 137,
+      "address": "0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B",
+      "name": "FSFOX",
+      "symbol": "FSFOX",
+      "decimals": 18,
+      "logoURI": "https://polygonscan.com/images/svg/brands/polygon.svg"
+    },
+    {
+      "chainId": 137,
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "name": "USD Coin (PoS Bridge)",
+      "symbol": "USDC",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/6319/small/USD_Coin_icon.png"
+    }
+  ]
+}
+
