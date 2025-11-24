@@ -163,7 +163,7 @@ All necessary transactions completed successfully:
 ## 📝 Token List
 
 ### Status:
-✅ **Token List Updated** (File and Gist)
+✅ **Token List Updated** (File and Repository)
 
 ### Content:
 1. **FSFOX:** 
@@ -232,7 +232,7 @@ User must select USDC PoS Bridge (`0x2791...4174`), not Native USDC.
 
 ### 1. ✅ Token List (Done):
 - ✅ `token-list.json` updated
-- ✅ Gist updated
+- ✅ Repository updated
 - ✅ Contains FSFOX + USDC PoS Bridge
 
 ### 2. ✅ Add Liquidity to PAXG Pool (Done):
@@ -309,7 +309,7 @@ All docs organized in `docs/`:
 9. ✅ Presale logic working
 10. ✅ Test Buy successful
 11. ✅ Token List Updated
-12. ✅ Gist Updated
+12. ✅ Token List Repository Created
 13. ✅ Documentation Organized
 14. ✅ 92,293.9 FSFOX Unlocked
 15. ✅ 3 NFT Positions in Safe (2 USDC + 1 PAXG)
