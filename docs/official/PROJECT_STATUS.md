@@ -181,9 +181,9 @@ All necessary transactions completed successfully:
 - **File:** `token-list.json` (Root)
 - **Status:** ✅ Updated
 
-### Gist (GitHub):
-- **URL:** https://gist.github.com/smehdikermani/bb6563d5b9246488791c640bc742cb7d
-- **Raw URL:** https://gist.githubusercontent.com/smehdikermani/bb6563d5b9246488791c640bc742cb7d/raw/token-list.json
+### Repository (GitHub):
+- **URL:** https://github.com/FSFOX-Protocol/fsfox-token-list
+- **Raw URL:** https://raw.githubusercontent.com/FSFOX-Protocol/fsfox-token-list/main/token-list.json
 - **Status:** ✅ Updated
 
 ### How to use:
@@ -193,7 +193,7 @@ All necessary transactions completed successfully:
 2. "Add List" or "Import List"
 3. Paste URL:
    ```
-   https://gist.githubusercontent.com/smehdikermani/bb6563d5b9246488791c640bc742cb7d/raw/token-list.json
+   https://raw.githubusercontent.com/FSFOX-Protocol/fsfox-token-list/main/token-list.json
    ```
 4. Import
 
@@ -281,7 +281,7 @@ All docs organized in `docs/`:
 - **Safe:** https://app.safe.global/polygon:0x5Dbf15e9FB912eC6AF8F4Bd496EF45B2C38aB130
 - **Uniswap:** https://app.uniswap.org
 - **QuickSwap:** https://quickswap.exchange
-- **Token List Gist:** https://gist.github.com/smehdikermani/bb6563d5b9246488791c640bc742cb7d
+- **Token List Repository:** https://github.com/FSFOX-Protocol/fsfox-token-list
 
 ---
 

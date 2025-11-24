@@ -28,7 +28,7 @@ Token List includes:
 
 2. **Token List URL:**
    ```
-   https://gist.githubusercontent.com/smehdikermani/bb6563d5b9246488791c640bc742cb7d/raw/token-list.json
+   https://raw.githubusercontent.com/FSFOX-Protocol/fsfox-token-list/main/token-list.json
    ```
 
 3. **Now you only see correct tokens!** ✅
@@ -39,10 +39,10 @@ Token List includes:
 
 If you need to update:
 
-1. **Edit Gist:**
-   - https://gist.github.com/smehdikermani/bb6563d5b9246488791c640bc742cb7d
-   - Edit → Paste new content
-   - Update
+1. **Edit Repository:**
+   - https://github.com/FSFOX-Protocol/fsfox-token-list
+   - Edit `token-list.json`
+   - Commit and push to `main` branch
 
 2. **URL remains the same** - Users don't need to change ✅
 

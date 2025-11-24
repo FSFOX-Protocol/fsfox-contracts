@@ -41,7 +41,7 @@ npx hardhat run scripts/buyFSFOX.js --network polygon
 
 1. **Add Token List:**
    - In Uniswap → Settings → Token Lists
-   - Paste URL: `https://gist.githubusercontent.com/smehdikermani/bb6563d5b9246488791c640bc742cb7d/raw/token-list.json`
+   - Paste URL: `https://raw.githubusercontent.com/FSFOX-Protocol/fsfox-token-list/main/token-list.json`
    - Import
 
 2. **Now you only see correct tokens:**
