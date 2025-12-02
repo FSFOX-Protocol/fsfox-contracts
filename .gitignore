@@ -38,3 +38,7 @@ typechain-types/
 # Hardhat Ignition
 ignition/deployments/
 
+# Temporary scripts (not for git)
+scripts/check/checkPoolFees.js
+scripts/generate/generateCollectFeesCalldata.js
+scripts/operations/collectFees.js
