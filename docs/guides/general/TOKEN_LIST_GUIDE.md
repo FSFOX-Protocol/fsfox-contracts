@@ -14,6 +14,7 @@ Token List helps users:
 Token List includes:
 1. **FSFOX:** `0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B`
 2. **USDC PoS Bridge:** `0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174`
+3. **PAXG (Paxos Gold PoS):** `0x553d3D295e0f695B9228246232eDF400ed3560B5`
 
 ---
 
@@ -53,6 +54,7 @@ If you need to update:
 File `token-list.json` is in project root and includes:
 - FSFOX (Official Address)
 - USDC PoS Bridge (that Pool was created with)
+- PAXG (Paxos Gold PoS) - for FSFOX/PAXG pool
 
 ---
 
