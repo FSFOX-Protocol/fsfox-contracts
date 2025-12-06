@@ -42,3 +42,5 @@ ignition/deployments/
 scripts/check/checkPoolFees.js
 scripts/generate/generateCollectFeesCalldata.js
 scripts/operations/collectFees.js
+scripts/check/checkOldContractsStatus.js
+scripts/operations/burnOldContractTokens.js
