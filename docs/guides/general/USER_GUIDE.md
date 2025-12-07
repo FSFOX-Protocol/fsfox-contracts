@@ -46,7 +46,9 @@ npx hardhat run scripts/buyFSFOX.js --network polygon
 
 2. **Now you only see correct tokens:**
    - FSFOX (Official Address)
-   - USDC PoS Bridge (that Pool was created with)
+   - USDC PoS Bridge (for USDC pool)
+   - PAXG (for PAXG pool)
+   - USDT (for USDT pool)
 
 3. **Swap** - Without confusion! ✅
 
@@ -67,15 +69,20 @@ If not using Token List:
 
 ---
 
-## ⚠️ Why Are There Two Types of USDC?
+## ⚠️ Why Are There Multiple Token Types?
 
-On Polygon, there are two types of USDC:
+On Polygon, there are different token types:
+
+### USDC:
 - **USDC Native:** `0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359`
 - **USDC PoS Bridge:** `0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174`
 
-**FSFOX Pool was created with USDC PoS Bridge.**
+**FSFOX has three pools:**
+- **Pool 1:** FSFOX / USDC PoS Bridge
+- **Pool 2:** FSFOX / PAXG
+- **Pool 3:** FSFOX / USDT
 
-**Solution:** Use Token List to only see correct USDC! ✅
+**Solution:** Use Token List to only see correct tokens! ✅
 
 ---
 

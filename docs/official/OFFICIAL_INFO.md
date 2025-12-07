@@ -25,6 +25,8 @@ These addresses are **deprecated**:
 
 ## 📊 Pool Information
 
+### Pool 1: FSFOX / USDC PoS Bridge
+
 **Pool Address:**
 ```
 0xC87A70627546aaDe880fdA3D1Fdd07007c60B5fF
@@ -33,9 +35,41 @@ These addresses are **deprecated**:
 **Pair:** FSFOX / USDC PoS Bridge
 - **USDC PoS Bridge:** `0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174`
 - **Fee Tier:** 0.3%
-- **Liquidity:** 50,000 FSFOX + 50 USDC
+- **Liquidity:** ~54,492.51 FSFOX + ~146.09 USDC
 
 **Polygonscan Pool:** https://polygonscan.com/address/0xC87A70627546aaDe880fdA3D1Fdd07007c60B5fF
+
+---
+
+### Pool 2: FSFOX / PAXG
+
+**Pool Address:**
+```
+0x375c88e92b60e6eafA2369C51065117603B22988
+```
+
+**Pair:** FSFOX / PAXG
+- **PAXG:** `0x553d3D295e0f695B9228246232eDF400ed3560B5`
+- **Fee Tier:** 0.3%
+- **Liquidity:** ~54,499.87 FSFOX + ~0.0348 PAXG
+
+**Polygonscan Pool:** https://polygonscan.com/address/0x375c88e92b60e6eafA2369C51065117603B22988
+
+---
+
+### Pool 3: FSFOX / USDT
+
+**Pool Address:**
+```
+0x4E06f9f368c27962431c508423263B899f8AF4bD
+```
+
+**Pair:** FSFOX / USDT
+- **USDT:** `0xc2132D05D31c914a87C6611C10748AEb04B58e8F`
+- **Fee Tier:** 0.3%
+- **Liquidity:** ~55,206.97 FSFOX + ~144.17 USDT
+
+**Polygonscan Pool:** https://polygonscan.com/address/0x4E06f9f368c27962431c508423263B899f8AF4bD
 
 ---
 

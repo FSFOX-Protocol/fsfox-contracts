@@ -46,7 +46,7 @@ The FSFOX project is successfully deployed on Polygon Mainnet and ready for use.
 
 ---
 
-### Pool 2: FSFOX / PAXG (New)
+### Pool 2: FSFOX / PAXG
 
 **Pool Address:**
 ```
@@ -60,11 +60,32 @@ The FSFOX project is successfully deployed on Polygon Mainnet and ready for use.
 - **Status:** ✅ Created, Initialized, Has Liquidity
 - **In Allowlist:** ✅ Yes
 - **Liquidity:** ✅ Active
-  - **PAXG:** 0.01148599308929987
-  - **FSFOX:** 43,261.740278999999998598
+  - **PAXG:** ~0.0348
+  - **FSFOX:** ~54,499.87
 - **NFT Position:** ✅ In Safe (Token ID: 2751156)
 - **Polygonscan:** https://polygonscan.com/address/0x375c88e92b60e6eafA2369C51065117603B22988
 - **QuickSwap:** https://quickswap.exchange/pools/0x375c88e92b60e6eafA2369C51065117603B22988
+
+---
+
+### Pool 3: FSFOX / USDT
+
+**Pool Address:**
+```
+0x4E06f9f368c27962431c508423263B899f8AF4bD
+```
+
+- **Pair:** FSFOX / USDT
+- **Fee Tier:** 0.3%
+- **Token0:** `0xc2132D05D31c914a87C6611C10748AEb04B58e8F` (USDT)
+- **Token1:** `0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B` (FSFOX)
+- **Status:** ✅ Created, Initialized, Has Liquidity
+- **In Allowlist:** ✅ Yes
+- **Liquidity:** ✅ Active
+  - **USDT:** ~144.17
+  - **FSFOX:** ~55,206.97
+- **Polygonscan:** https://polygonscan.com/address/0x4E06f9f368c27962431c508423263B899f8AF4bD
+- **QuickSwap:** https://quickswap.exchange/pools/0x4E06f9f368c27962431c508423263B899f8AF4bD
 
 ---
 
@@ -74,7 +95,8 @@ The FSFOX project is successfully deployed on Polygon Mainnet and ready for use.
 
 - **tradingEnabled:** `true` ✅ (Full Trading Active)
 - **USDC Pool allowed:** ✅ Yes
-- **PAXG Pool allowed:** ✅ Yes (New)
+- **PAXG Pool allowed:** ✅ Yes
+- **USDT Pool allowed:** ✅ Yes
 - **SwapRouter allowed:** ✅ Yes
 - **NPM allowed:** ✅ Yes
 
@@ -87,11 +109,12 @@ The FSFOX project is successfully deployed on Polygon Mainnet and ready for use.
 
 ## 📦 Token Distribution
 
-- **Safe (Owner):** 10,000.9 FSFOX
-- **USDC Pool:** 86,523.48 FSFOX (For trading)
-- **PAXG Pool:** 43,261.74 FSFOX (For trading)
-- **Contract (Locked):** 857,706.1 FSFOX (Locked - unlockable)
-- **Unlocked so far:** 92,293.9 FSFOX
+- **Safe (Owner):** ~10,199.64 FSFOX
+- **USDC Pool:** ~54,492.51 FSFOX (For trading)
+- **PAXG Pool:** ~54,499.87 FSFOX (For trading)
+- **USDT Pool:** ~55,206.97 FSFOX (For trading)
+- **Contract (Locked):** ~775,506.1 FSFOX (Locked - unlockable)
+- **Unlocked so far:** ~164,199.35 FSFOX
 
 **Total Supply:** 1,000,000 FSFOX
 
@@ -122,6 +145,12 @@ All necessary transactions completed successfully:
 17. ✅ **Add Liquidity PAXG Pool** - Added (0.011485 PAXG + 43,261.74 FSFOX)
 18. ✅ **Approve NFT Pool PAXG** - Approved for Safe
 19. ✅ **Transfer NFT Pool PAXG to Safe** - Transferred to Safe (Token ID: 2751156)
+20. ✅ **Unlock Tokens for Three Pools** - Unlocked ~82,200 FSFOX
+21. ✅ **Increase PAXG Pool Liquidity** - Increased to ~0.0348 PAXG + ~54,499.87 FSFOX
+22. ✅ **Create USDT Pool** - QuickSwap V3 Pool created
+23. ✅ **Initialize USDT Pool** - Initialized
+24. ✅ **setPool (USDT)** - Added to allowlist
+25. ✅ **Add Liquidity USDT Pool** - Added (~144.17 USDT + ~55,206.97 FSFOX)
 
 **Test Buy Transaction Hash:**
 ```
@@ -177,6 +206,16 @@ All necessary transactions completed successfully:
    - Decimals: 6
    - **Correct USDC for Pool**
 
+3. **PAXG:** 
+   - Address: `0x553d3D295e0f695B9228246232eDF400ed3560B5`
+   - Symbol: PAXG
+   - Decimals: 18
+
+4. **USDT:** 
+   - Address: `0xc2132D05D31c914a87C6611C10748AEb04B58e8F`
+   - Symbol: USDT
+   - Decimals: 6
+
 ### Files:
 - **File:** `token-list.json` (Root)
 - **Status:** ✅ Updated
@@ -200,6 +239,8 @@ All necessary transactions completed successfully:
 **Result:**
 - ✅ Users see correct FSFOX
 - ✅ Users see correct USDC PoS Bridge
+- ✅ Users see correct PAXG
+- ✅ Users see correct USDT
 - ✅ No confusion
 - ✅ Easy Buy
 
@@ -233,17 +274,25 @@ User must select USDC PoS Bridge (`0x2791...4174`), not Native USDC.
 ### 1. ✅ Token List (Done):
 - ✅ `token-list.json` updated
 - ✅ Repository updated
-- ✅ Contains FSFOX + USDC PoS Bridge
+- ✅ Contains FSFOX + USDC PoS Bridge + PAXG + USDT
 
 ### 2. ✅ Add Liquidity to PAXG Pool (Done):
 - ✅ Pool Created/Initialized
 - ✅ Pool allowed
-- ✅ Liquidity Added (PAXG: 0.011485 + FSFOX: 43,261.74)
+- ✅ Liquidity Added (~0.0348 PAXG + ~54,499.87 FSFOX)
 - ✅ NFT Position in Safe (Token ID: 2751156)
 
 **Guide:** See `guides/liquidity/ADD_PAXG.md`
 
-### 3. ✅ Enable Full Trading (Done):
+### 3. ✅ Add USDT Pool (Done):
+- ✅ Pool Created/Initialized
+- ✅ Pool allowed
+- ✅ Liquidity Added (~144.17 USDT + ~55,206.97 FSFOX)
+- ✅ Equal liquidity across all three pools
+
+**Scripts:** See `scripts/operations/createUSDTPool.js` and `scripts/operations/addUSDTLiquidity.js`
+
+### 4. ✅ Enable Full Trading (Done):
 **From Gnosis Safe:**
 - **To:** `0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B`
 - **Function:** `enableTrading()`
@@ -253,7 +302,7 @@ User must select USDC PoS Bridge (`0x2791...4174`), not Native USDC.
 
 ---
 
-### 4. List on CEX:
+### 5. List on CEX:
 
 Request listing on Binance/Coinbase.
 
@@ -278,6 +327,7 @@ All docs organized in `docs/`:
 - **FSFOX Contract:** https://polygonscan.com/address/0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B
 - **USDC Pool:** https://polygonscan.com/address/0xC87A70627546aaDe880fdA3D1Fdd07007c60B5fF
 - **PAXG Pool:** https://polygonscan.com/address/0x375c88e92b60e6eafA2369C51065117603B22988
+- **USDT Pool:** https://polygonscan.com/address/0x4E06f9f368c27962431c508423263B899f8AF4bD
 - **Safe:** https://app.safe.global/polygon:0x5Dbf15e9FB912eC6AF8F4Bd496EF45B2C38aB130
 - **Uniswap:** https://app.uniswap.org
 - **QuickSwap:** https://quickswap.exchange
@@ -300,20 +350,25 @@ All docs organized in `docs/`:
 
 1. ✅ FSFOX Deployed & Verified
 2. ✅ FSFOX/USDC Pool Created
-3. ✅ USDC Liquidity Added (86,523.48 FSFOX + 91.997634 USDC)
+3. ✅ USDC Liquidity Added (~54,492.51 FSFOX + ~146.09 USDC)
 4. ✅ FSFOX/PAXG Pool Created
 5. ✅ PAXG Pool Initialized
 6. ✅ PAXG Pool allowed
-7. ✅ PAXG Liquidity Added (0.011485 PAXG + 43,261.74 FSFOX)
+7. ✅ PAXG Liquidity Added (~0.0348 PAXG + ~54,499.87 FSFOX)
 8. ✅ PAXG NFT Position Transferred to Safe (Token ID: 2751156)
-9. ✅ Presale logic working
-10. ✅ Test Buy successful
-11. ✅ Token List Updated
-12. ✅ Token List Repository Created
-13. ✅ Documentation Organized
-14. ✅ 92,293.9 FSFOX Unlocked
-15. ✅ 3 NFT Positions in Safe (2 USDC + 1 PAXG)
-16. ✅ Full Trading Enabled (`enableTrading` called)
+9. ✅ FSFOX/USDT Pool Created
+10. ✅ USDT Pool Initialized
+11. ✅ USDT Pool allowed
+12. ✅ USDT Liquidity Added (~144.17 USDT + ~55,206.97 FSFOX)
+13. ✅ Presale logic working
+14. ✅ Test Buy successful
+15. ✅ Token List Updated (FSFOX + USDC + PAXG + USDT)
+16. ✅ Token List Repository Created
+17. ✅ Documentation Organized
+18. ✅ ~164,199.35 FSFOX Unlocked
+19. ✅ Multiple NFT Positions in Safe (USDC + PAXG + USDT pools)
+20. ✅ Full Trading Enabled (`enableTrading` called)
+21. ✅ Three pools with equal liquidity
 
 ---
 
@@ -322,7 +377,7 @@ All docs organized in `docs/`:
 **FSFOX Project is Fully Live!**
 
 - ✅ Users can Buy & Sell (Trading Enabled)
-- ✅ Two Active Pools: FSFOX/USDC & FSFOX/PAXG
+- ✅ Three Active Pools: FSFOX/USDC, FSFOX/PAXG & FSFOX/USDT
 - ✅ All NFT Positions in Safe
 - ✅ Token List Ready
 - ✅ Docs Complete
@@ -332,6 +387,8 @@ All docs organized in `docs/`:
 - NFT #2740509: Pool FSFOX/USDC
 - NFT #2743939: Pool FSFOX/USDC
 - NFT #2751156: Pool FSFOX/PAXG
+- NFT #2786753: Pool FSFOX/PAXG (increased liquidity)
+- NFT: Pool FSFOX/USDT (new pool)
 
 **Final Status:** Project is fully launched and Presale restrictions are lifted.
 
