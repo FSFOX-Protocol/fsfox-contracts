@@ -35,7 +35,7 @@ These addresses are **deprecated**:
 **Pair:** FSFOX / USDC PoS Bridge
 - **USDC PoS Bridge:** `0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174`
 - **Fee Tier:** 0.3%
-- **Liquidity:** ~54,492.51 FSFOX + ~146.09 USDC
+- **Liquidity:** ~86,523.48 FSFOX + ~91.9976 USDC
 
 **Polygonscan Pool:** https://polygonscan.com/address/0xC87A70627546aaDe880fdA3D1Fdd07007c60B5fF
 
@@ -88,16 +88,17 @@ These addresses are **deprecated**:
 - **Symbol:** FSFOX
 - **Decimals:** 18
 - **Total Supply:** 1,000,000 tokens
-- **Locked:** 950,000 tokens (in contract)
-- **Free:** 50,000 tokens (in Safe/Owner)
+- **Locked (contract):** ~775,506.1 FSFOX (unlockable)
+- **Unlocked so far:** ~164,199.35 FSFOX
+- **Safe (owner):** ~10,199.64 FSFOX
 
 ---
 
 ## 🔄 Presale Status
 
-- **tradingEnabled:** `false` (Presale active)
+- **tradingEnabled:** `true` (Full trading active)
 - ✅ **BUY:** Users can buy FSFOX
-- ❌ **SELL:** Users cannot sell FSFOX (until `enableTrading()`)
+- ✅ **SELL:** Users can sell FSFOX
 
 ---
 
