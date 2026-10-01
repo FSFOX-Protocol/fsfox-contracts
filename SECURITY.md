@@ -54,7 +54,7 @@ Instead, please report them via one of the following methods:
 ## ⚠️ Known Security Considerations
 
 ### Smart Contract
-- **Owner Privileges:** Contract owner has significant control: `setPool`/`setSpender`/`enableTrading` and `unlockTokens()` (which now has nothing left to release: the locked supply was moved into the vesting wallet `0xE0236fc0Dd9d63926b20A4B46eb62c2320648d40` on 2026-10-02), and there is no `transferOwnership`
+- **Owner Privileges (details: `docs/official/OWNER_POWERS.md`):** Contract owner has significant control: `setPool`/`setSpender`/`enableTrading` and `unlockTokens()` (which now has nothing left to release: the locked supply was moved into the vesting wallet `0xE0236fc0Dd9d63926b20A4B46eb62c2320648d40` on 2026-10-02), and there is no `transferOwnership`
 - **Trading Controls:** Presale mode restricts trading
 - **Locked Tokens:** 950,000 tokens are locked in contract
 - **No Mint/Burn:** Minting and burning are disabled

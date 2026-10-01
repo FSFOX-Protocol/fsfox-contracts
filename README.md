@@ -47,6 +47,7 @@ These addresses are **deprecated**:
 Complete documentation in `docs/` folder:
 - 📋 `docs/README.md` - Documentation Index
 - 🎯 `docs/official/OFFICIAL_INFO.md` - Official Token and Pool Information
+- 🔑 `docs/official/OWNER_POWERS.md` - What the owner can and cannot do (answers "Contract Not Renounced" flags)
 - 👥 `docs/guides/general/USER_GUIDE.md` - User Guide for Buy/Sell
 - 📝 `docs/guides/general/TOKEN_LIST_GUIDE.md` - Token List Usage Guide
 - 🔐 `docs/guides/safe/GNOSIS_SAFE_TRANSACTIONS.md` - Safe Transactions Guide
