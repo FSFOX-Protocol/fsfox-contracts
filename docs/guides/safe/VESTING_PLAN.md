@@ -1,7 +1,14 @@
 # Locked Supply Release Plan (Vesting)
 
-**Status:** prepared, **not executed on-chain yet.** Until the Safe batch below is signed and executed,
-the remaining locked supply is still releasable by the owner at any time via `unlockTokens()`.
+**Status: EXECUTED (2026-10-02).** The entire remaining locked supply (775,506.1 FSFOX) was moved into the vesting wallet
+[`0xE0236fc0Dd9d63926b20A4B46eb62c2320648d40`](https://polygonscan.com/address/0xE0236fc0Dd9d63926b20A4B46eb62c2320648d40#code) (source verified) by a single Safe batch
+([unlock tx](https://polygonscan.com/tx/0x39518084f61776758213996d605747a983c4401cc07ec1216ffaf1c24a8a146c)). `lockedTokens()` is now `0`; nothing is left for `unlockTokens()` to release.
+
+| | |
+|---|---|
+| Vesting start | 2026-10-01T23:19:30Z (unix 1790896770) |
+| Cliff | 2027-03-30T23:19:30Z |
+| Fully vested | 2029-09-30T23:19:30Z |
 
 ## Why
 
@@ -30,6 +37,8 @@ Properties (covered by `test/FSFOXVesting.test.js` and a mainnet-fork dry run):
 - the Safe may transfer ownership of the vesting wallet (changes who receives *future* releases) but cannot accelerate the schedule.
 
 The token contract itself is unchanged and not redeployed.
+
+The sections below are kept as the runbook that was followed (and for reproducing the checks).
 
 ## Execution runbook
 

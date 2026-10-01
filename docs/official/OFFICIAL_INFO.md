@@ -82,7 +82,8 @@ They change with every trade — **always re-check on Polygonscan / DEX Screener
 |---|---|
 | Owner | Gnosis Safe `0x5Dbf…B130` |
 | `tradingEnabled` | `true` |
-| Locked in contract (`lockedTokens`) | 775,506.1 FSFOX |
+| Locked in token contract (`lockedTokens`) | 0 — moved to vesting wallet on 2026-10-02 |
+| Vesting wallet | 775,506.1 FSFOX in [`0xE0236fc0Dd9d63926b20A4B46eb62c2320648d40`](https://polygonscan.com/address/0xE0236fc0Dd9d63926b20A4B46eb62c2320648d40#code) (cliff 2027-03-30, fully vested 2029-09-30) |
 | Safe balance | ~10,199.64 FSFOX |
 | USDC pool | ~47,626.72 FSFOX + ~167.62 USDC |
 | PAXG pool | ~47,735.20 FSFOX + ~0.0399 PAXG |
@@ -107,8 +108,8 @@ They change with every trade — **always re-check on Polygonscan / DEX Screener
 - **Symbol:** FSFOX
 - **Decimals:** 18
 - **Total Supply:** 1,000,000 tokens
-- **Locked (contract):** 775,506.1 FSFOX — note: the owner can release these at any time via `unlockTokens()` (no timelock)
-- **Unlocked so far:** 174,493.9 FSFOX (950,000 − 775,506.1)
+- **Locked (token contract):** 0 FSFOX. The remaining 775,506.1 FSFOX were moved into an on-chain vesting wallet (`0xE0236fc0Dd9d63926b20A4B46eb62c2320648d40`): nothing releasable before 2027-03-30, then linear until 2029-09-30. See `docs/guides/safe/VESTING_PLAN.md`
+- **Unlocked from the contract:** 950,000 FSFOX (of which 775,506.1 are in the vesting wallet)
 - **Safe (owner):** ~10,199.64 FSFOX
 
 ---

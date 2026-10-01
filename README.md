@@ -82,7 +82,7 @@ npx hardhat run scripts/deployment/deployNewOwner.js --network polygon
 - **Name:** FSFOX
 - **Symbol:** FSFOX
 - **Total Supply:** 1,000,000 tokens
-- **Initial allocation:** 950,000 locked (held by the contract, released only by the owner via `unlockTokens`) + 50,000 free (owner)
+- **Initial allocation:** 950,000 locked + 50,000 free (owner). The locked part has since been released; the last 775,506.1 FSFOX sit in a verified vesting wallet (`0xE0236fc0Dd9d63926b20A4B46eb62c2320648d40`, cliff 2027-03-30, linear until 2029-09-30)
 - **Current locked / unlocked amounts:** see `docs/official/OFFICIAL_INFO.md`
 
 ---

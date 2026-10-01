@@ -113,13 +113,14 @@ The FSFOX project is successfully deployed on Polygon Mainnet and ready for use.
 - **USDC Pool:** ~47,626.72 FSFOX
 - **PAXG Pool:** ~47,735.20 FSFOX
 - **USDT Pool:** ~47,322.75 FSFOX
-- **Contract (Locked):** 775,506.1 FSFOX (unlockable by owner)
-- **Unlocked so far:** 174,493.9 FSFOX
+- **Contract (Locked):** 0 FSFOX
+- **Vesting wallet:** 775,506.1 FSFOX (`0xE0236fc0Dd9d63926b20A4B46eb62c2320648d40`; cliff 2027-03-30, fully vested 2029-09-30)
+- **Unlocked from contract so far:** 950,000 FSFOX
 - **Rest:** held by traders (bought from pools)
 
 **Total Supply:** 1,000,000 FSFOX
 
-**Note:** Use `unlockTokens()` to release Locked Tokens.
+**Note:** `unlockTokens()` has nothing left to release; the former locked supply is released only by the vesting wallet's schedule.
 
 ---
 
@@ -366,7 +367,7 @@ All docs organized in `docs/`:
 15. ✅ Token List Updated (FSFOX + USDC + PAXG + USDT)
 16. ✅ Token List Repository Created
 17. ✅ Documentation Organized
-18. ✅ 174,493.9 FSFOX Unlocked
+18. ✅ All locked supply (775,506.1 FSFOX) moved into verified on-chain vesting wallet (2026-10-02)
 19. ✅ Multiple NFT Positions in Safe (USDC + PAXG + USDT pools)
 20. ✅ Full Trading Enabled (`enableTrading` called)
 21. ✅ Three pools with equal liquidity
