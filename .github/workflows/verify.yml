@@ -44,6 +44,6 @@ jobs:
         CONTRACT_ADDRESS: ${{ github.event.inputs.contract_address }}
         OWNER_ADDRESS: ${{ github.event.inputs.owner_address }}
       run: |
-        # Inputs go through env vars (not inline ${{ }}) to avoid shell injection
+        # Inputs are passed via env vars, not interpolated into the script (avoids shell injection)
         npx hardhat verify --network "$NETWORK" "$CONTRACT_ADDRESS" "$OWNER_ADDRESS"
 
