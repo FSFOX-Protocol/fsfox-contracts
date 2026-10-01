@@ -6,17 +6,20 @@ on:
   pull_request:
     branches: [ main, develop ]
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
 
     - name: Install dependencies
@@ -28,32 +31,30 @@ jobs:
     - name: Run tests
       run: npm test
 
-    - name: Check for sensitive data
-      run: |
-        if grep -r "PRIVATE_KEY\|0x[a-fA-F0-9]\{64\}" --include="*.js" --include="*.sol" --include="*.json" .; then
-          echo "❌ Sensitive data found in code!"
-          exit 1
-        fi
-        echo "✅ No sensitive data found"
-
-  lint:
+  secret-scan:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        cache: 'npm'
-
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Check code formatting
+    - name: Check for committed secrets
       run: |
-        echo "Checking for basic code quality..."
-        # Add linting commands here if you have them
-        echo "✅ Code quality check passed"
-
+        # Fail if a hard-coded private key / secret-looking assignment is tracked.
+        # Matches: PRIVATE_KEY=<64 hex>, a raw 0x+64-hex literal in code, or a tracked .env file.
+        # (Placeholders like "your_private_key_here" and process.env.PRIVATE_KEY are fine;
+        #  tx hashes / calldata in *.md docs are public and intentionally not scanned.)
+        status=0
+        if git ls-files | grep -E '(^|/)\.env($|\.)' | grep -v 'env.example'; then
+          echo "❌ A .env file is tracked by git"; status=1
+        fi
+        if git grep -nIE '(PRIVATE_KEY|MNEMONIC|SECRET)[A-Z_]*[[:space:]]*[=:][[:space:]]*["'"'"']?(0x)?[0-9a-fA-F]{64}' -- . ':!package-lock.json'; then
+          echo "❌ Hard-coded private key assignment found"; status=1
+        fi
+        if git grep -nIE '["'"'"']0x[0-9a-fA-F]{64}["'"'"']' -- '*.js' '*.sol' ':!package-lock.json'; then
+          echo "❌ 64-hex literal (possible private key) in code"; status=1
+        fi
+        if git grep -nIiE '(api[_-]?key|apikey|secret)["'"'"']?[[:space:]]*[=:][[:space:]]*["'"'"'][A-Za-z0-9_-]{24,}["'"'"']' -- '*.js' '*.json' '*.yml' ':!package-lock.json' ':!token-list.json'; then
+          echo "❌ Possible hard-coded API key/token"; status=1
+        fi
+        if [ "$status" -ne 0 ]; then exit 1; fi
+        echo "✅ No secrets found in tracked files"

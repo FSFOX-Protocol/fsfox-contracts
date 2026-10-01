@@ -35,7 +35,7 @@ These addresses are **deprecated**:
 **Pair:** FSFOX / USDC PoS Bridge
 - **USDC PoS Bridge:** `0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174`
 - **Fee Tier:** 0.3%
-- **Liquidity:** ~86,523.48 FSFOX + ~91.9976 USDC
+- **Liquidity:** see Live Snapshot below
 
 **Polygonscan Pool:** https://polygonscan.com/address/0xC87A70627546aaDe880fdA3D1Fdd07007c60B5fF
 
@@ -51,7 +51,7 @@ These addresses are **deprecated**:
 **Pair:** FSFOX / PAXG
 - **PAXG:** `0x553d3D295e0f695B9228246232eDF400ed3560B5`
 - **Fee Tier:** 0.3%
-- **Liquidity:** ~54,499.87 FSFOX + ~0.0348 PAXG
+- **Liquidity:** see Live Snapshot below
 
 **Polygonscan Pool:** https://polygonscan.com/address/0x375c88e92b60e6eafA2369C51065117603B22988
 
@@ -67,9 +67,28 @@ These addresses are **deprecated**:
 **Pair:** FSFOX / USDT
 - **USDT:** `0xc2132D05D31c914a87C6611C10748AEb04B58e8F`
 - **Fee Tier:** 0.3%
-- **Liquidity:** ~55,206.97 FSFOX + ~144.17 USDT
+- **Liquidity:** see Live Snapshot below
 
 **Polygonscan Pool:** https://polygonscan.com/address/0x4E06f9f368c27962431c508423263B899f8AF4bD
+
+---
+
+## 📸 Live Snapshot (read from Polygon mainnet, 2026-10-01)
+
+Values below were read directly from the chain (`owner()`, `tradingEnabled()`, `lockedTokens()`, `balanceOf`, pool `slot0()`).
+They change with every trade — **always re-check on Polygonscan / DEX Screener before relying on them.**
+
+| Item | Value |
+|---|---|
+| Owner | Gnosis Safe `0x5Dbf…B130` |
+| `tradingEnabled` | `true` |
+| Locked in contract (`lockedTokens`) | 775,506.1 FSFOX |
+| Safe balance | ~10,199.64 FSFOX |
+| USDC pool | ~47,626.72 FSFOX + ~167.62 USDC |
+| PAXG pool | ~47,735.20 FSFOX + ~0.0399 PAXG |
+| USDT pool | ~47,322.75 FSFOX + ~168.14 USDT |
+| Pools in allowlist | USDC ✅ PAXG ✅ USDT ✅ |
+| Price (USDC / USDT pools) | ~0.00352 USDC / ~0.00355 USDT per FSFOX |
 
 ---
 
@@ -88,8 +107,8 @@ These addresses are **deprecated**:
 - **Symbol:** FSFOX
 - **Decimals:** 18
 - **Total Supply:** 1,000,000 tokens
-- **Locked (contract):** ~775,506.1 FSFOX (unlockable)
-- **Unlocked so far:** ~164,199.35 FSFOX
+- **Locked (contract):** 775,506.1 FSFOX — note: the owner can release these at any time via `unlockTokens()` (no timelock)
+- **Unlocked so far:** 174,493.9 FSFOX (950,000 − 775,506.1)
 - **Safe (owner):** ~10,199.64 FSFOX
 
 ---

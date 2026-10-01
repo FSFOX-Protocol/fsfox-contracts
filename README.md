@@ -12,7 +12,13 @@
 - **Address:** `0xC87A70627546aaDe880fdA3D1Fdd07007c60B5fF`
 - **Pair:** FSFOX / USDC PoS Bridge
 - **Fee Tier:** 0.3%
-- **Liquidity:** 50,000 FSFOX + 50 USDC
+- **Liquidity:** see live status in `docs/official/OFFICIAL_INFO.md` (changes with trading)
+
+---
+
+### Other Pools:
+- **FSFOX / PAXG:** `0x375c88e92b60e6eafA2369C51065117603B22988`
+- **FSFOX / USDT:** `0x4E06f9f368c27962431c508423263B899f8AF4bD`
 
 ---
 
@@ -66,7 +72,7 @@ npx hardhat test
 
 ### Deploy:
 ```bash
-npx hardhat run scripts/deployNewOwner.js --network polygon
+npx hardhat run scripts/deployment/deployNewOwner.js --network polygon
 ```
 
 ---
@@ -76,8 +82,8 @@ npx hardhat run scripts/deployNewOwner.js --network polygon
 - **Name:** FSFOX
 - **Symbol:** FSFOX
 - **Total Supply:** 1,000,000 tokens
-- **Locked:** 950,000 tokens (in contract)
-- **Free:** 50,000 tokens (in Safe/Owner)
+- **Initial allocation:** 950,000 locked (held by the contract, released only by the owner via `unlockTokens`) + 50,000 free (owner)
+- **Current locked / unlocked amounts:** see `docs/official/OFFICIAL_INFO.md`
 
 ---
 

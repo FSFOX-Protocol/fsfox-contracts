@@ -1,6 +1,6 @@
 # Latest FSFOX Project Status
 
-**Updated:** 2025-11-23 (Latest Update)
+**Updated:** 2026-10-01 (on-chain snapshot refreshed; see `OFFICIAL_INFO.md` → Live Snapshot)
 
 ---
 
@@ -107,14 +107,15 @@ The FSFOX project is successfully deployed on Polygon Mainnet and ready for use.
 
 ---
 
-## 📦 Token Distribution
+## 📦 Token Distribution (on-chain, 2026-10-01)
 
 - **Safe (Owner):** ~10,199.64 FSFOX
-- **USDC Pool:** ~54,492.51 FSFOX (For trading)
-- **PAXG Pool:** ~54,499.87 FSFOX (For trading)
-- **USDT Pool:** ~55,206.97 FSFOX (For trading)
-- **Contract (Locked):** ~775,506.1 FSFOX (Locked - unlockable)
-- **Unlocked so far:** ~164,199.35 FSFOX
+- **USDC Pool:** ~47,626.72 FSFOX
+- **PAXG Pool:** ~47,735.20 FSFOX
+- **USDT Pool:** ~47,322.75 FSFOX
+- **Contract (Locked):** 775,506.1 FSFOX (unlockable by owner)
+- **Unlocked so far:** 174,493.9 FSFOX
+- **Rest:** held by traders (bought from pools)
 
 **Total Supply:** 1,000,000 FSFOX
 
@@ -182,7 +183,7 @@ All necessary transactions completed successfully:
 - ❌ Not in Uniswap Subgraph
 
 **Solution:**
-- ✅ Use Direct Swap Script: `npx hardhat run scripts/buyFSFOX.js --network polygon`
+- ✅ Use Direct Swap Script: `npx hardhat run scripts/operations/buyFSFOX.js --network polygon`
 - 📧 Contact Uniswap Support
 
 **Guide:** See `guides/troubleshooting/UNISWAP_404.md`
@@ -288,7 +289,7 @@ User must select USDC PoS Bridge (`0x2791...4174`), not Native USDC.
 - ✅ Pool Created/Initialized
 - ✅ Pool allowed
 - ✅ Liquidity Added (~144.17 USDT + ~55,206.97 FSFOX)
-- ✅ Equal liquidity across all three pools
+- ✅ Roughly equal liquidity across the three pools (re-check live)
 
 **Scripts:** See `scripts/operations/createUSDTPool.js` and `scripts/operations/addUSDTLiquidity.js`
 
@@ -350,7 +351,7 @@ All docs organized in `docs/`:
 
 1. ✅ FSFOX Deployed & Verified
 2. ✅ FSFOX/USDC Pool Created
-3. ✅ USDC Liquidity Added (~54,492.51 FSFOX + ~146.09 USDC)
+3. ✅ USDC Liquidity Added (see Live Snapshot in OFFICIAL_INFO.md)
 4. ✅ FSFOX/PAXG Pool Created
 5. ✅ PAXG Pool Initialized
 6. ✅ PAXG Pool allowed
@@ -365,7 +366,7 @@ All docs organized in `docs/`:
 15. ✅ Token List Updated (FSFOX + USDC + PAXG + USDT)
 16. ✅ Token List Repository Created
 17. ✅ Documentation Organized
-18. ✅ ~164,199.35 FSFOX Unlocked
+18. ✅ 174,493.9 FSFOX Unlocked
 19. ✅ Multiple NFT Positions in Safe (USDC + PAXG + USDT pools)
 20. ✅ Full Trading Enabled (`enableTrading` called)
 21. ✅ Three pools with equal liquidity

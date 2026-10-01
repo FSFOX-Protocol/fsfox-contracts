@@ -21,6 +21,7 @@ module.exports = {
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
       chainId: 137,
       gasPrice: "auto",
+      timeout: 120000, // 120 seconds
     },
     amoy: {
       url: process.env.AMOY_RPC_URL || "https://polygon-amoy.public.blastapi.io",

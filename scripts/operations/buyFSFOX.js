@@ -3,12 +3,25 @@ require("dotenv").config();
 
 // Addresses
 const FSFOX = "0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B";
-const USDC = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; // Bridged USDC (USDC.e)
-const SWAP_ROUTER = "0xE592427A0AEce92De3Edee1F18E0157C05861564"; // Uniswap V3 SwapRouter
+const USDC = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"; // USDC PoS Bridge
+const USDT = "0xc2132D05D31c914a87C6611C10748AEb04B58e8F"; // USDT
+const PAXG = "0x553d3D295e0f695B9228246232eDF400ed3560B5"; // PAXG
+const SWAP_ROUTER = "0xE592427A0AEce92De3Edee1F18E0157C05861564"; // Uniswap V3 SwapRouter (also used by QuickSwap)
+const QUOTER = "0x61fFE014bA17989E743c5F6cB21bF9697530B21e"; // Uniswap V3 Quoter
+const POOL_USDC = "0xC87A70627546aaDe880fdA3D1Fdd07007c60B5fF"; // FSFOX/USDC Pool
+const POOL_PAXG = "0x375c88e92b60e6eafA2369C51065117603B22988"; // FSFOX/PAXG Pool
+const POOL_USDT = "0x4E06f9f368c27962431c508423263B899f8AF4bD"; // FSFOX/USDT Pool
 const POOL_FEE = 3000; // 0.3%
 
 async function main() {
-  console.log("🚀 Buying FSFOX via Direct Swap\n");
+  console.log("🚀 Buying FSFOX via Direct Swap (USDC Pool)\n");
+  console.log("📋 Available Pools:");
+  console.log("  1. FSFOX/USDC PoS Bridge:", POOL_USDC);
+  console.log("  2. FSFOX/PAXG:", POOL_PAXG);
+  console.log("  3. FSFOX/USDT:", POOL_USDT);
+  console.log("  💡 For PAXG: Use buyFSFOXWithPAXG.js");
+  console.log("  💡 For USDT: Use similar script or QuickSwap UI");
+  console.log("");
   
   const [signer] = await ethers.getSigners();
   const provider = ethers.provider;
@@ -17,6 +30,7 @@ async function main() {
   console.log("  Account:", signer.address);
   console.log("  USDC:", USDC);
   console.log("  FSFOX:", FSFOX);
+  console.log("  Pool:", POOL_USDC);
   console.log("  SwapRouter:", SWAP_ROUTER);
   console.log("");
   
@@ -75,9 +89,36 @@ async function main() {
   // Prepare swap parameters
   const deadline = Math.floor(Date.now() / 1000) + 3600; // 1 hour from now
   
+  // Get accurate quote from Quoter contract
+  let expectedFSFOX;
+  try {
+    const quoter = new ethers.Contract(QUOTER, [
+      "function quoteExactInputSingle(address tokenIn, address tokenOut, uint24 fee, uint256 amountIn, uint160 sqrtPriceLimitX96) external returns (uint256 amountOut)"
+    ], provider);
+    
+    console.log("📊 Getting price quote from pool...");
+    const quote = await quoter.quoteExactInputSingle.staticCall(
+      USDC,
+      FSFOX,
+      POOL_FEE,
+      swapAmountUSDC,
+      0
+    );
+    expectedFSFOX = quote;
+    console.log("  ✅ Expected FSFOX:", ethers.formatUnits(expectedFSFOX, fsfoxDecimals));
+  } catch (error) {
+    console.log("  ⚠️  Could not get quote from Quoter contract");
+    console.log("  💡 Using conservative estimate based on current pool liquidity");
+    // Fallback: Conservative estimate based on current liquidity
+    // Current pool: ~86,523 FSFOX / ~92 USDC ≈ 940 FSFOX per 1 USDC
+    // Using slightly lower estimate (940) to account for price impact and fees
+    expectedFSFOX = ethers.parseUnits("940", fsfoxDecimals);
+    console.log("  ✅ Estimated FSFOX:", ethers.formatUnits(expectedFSFOX, fsfoxDecimals));
+    console.log("  ⚠️  Note: Actual amount may vary. Slippage tolerance: 5%");
+  }
+  console.log("");
+  
   // Calculate minimum output (with 5% slippage)
-  // We'll use a rough estimate: 1 USDC = ~975 FSFOX (based on your UI)
-  const expectedFSFOX = ethers.parseUnits("975", fsfoxDecimals);
   const minFSFOX = expectedFSFOX * 95n / 100n; // 5% slippage
   
   console.log("📊 Swap Parameters:");

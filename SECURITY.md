@@ -14,12 +14,8 @@ We actively support the following versions with security updates:
 
 Instead, please report them via one of the following methods:
 
-### Email
-- **Security Email:** security@fsfox.io (if available)
-- **Subject:** `[SECURITY] FSFOX Token Vulnerability Report`
-
-### GitHub Security Advisories
-- Use GitHub's private vulnerability reporting feature if available
+### GitHub Security Advisories (preferred)
+- Use **Security → Report a vulnerability** on https://github.com/FSFOX-Protocol/fsfox-contracts (private vulnerability reporting).
 
 ### Response Time
 - We will acknowledge receipt of your report within **48 hours**
@@ -39,8 +35,11 @@ Instead, please report them via one of the following methods:
 1. **Review all code** before deployment
 2. **Test thoroughly** on testnets before mainnet
 3. **Use environment variables** for sensitive data
-4. **Never commit private keys** or sensitive information
-5. **Follow secure coding practices**
+4. **Never commit private keys** or sensitive information (`.env`, keystores, mnemonics, RPC URLs / API keys with embedded secrets). This repository is public.
+5. **Use a dedicated gas-only wallet** for `PRIVATE_KEY` in `.env`; owner-level actions (`unlockTokens`, `setPool`, liquidity NFTs) go through the Gnosis Safe using the calldata produced by `scripts/generate/*`.
+6. **If a key or API key was ever exposed**, treat it as compromised: rotate it immediately (git history is public and permanent).
+7. **Follow secure coding practices**
+8. CI (`secret-scan` job) blocks pushes containing key-like literals; do not disable it.
 
 ## 🔍 Security Audit
 
@@ -55,7 +54,7 @@ Instead, please report them via one of the following methods:
 ## ⚠️ Known Security Considerations
 
 ### Smart Contract
-- **Owner Privileges:** Contract owner has significant control
+- **Owner Privileges:** Contract owner has significant control: `unlockTokens()` can release any part of the locked supply at any time (no timelock/vesting), and there is no `transferOwnership`
 - **Trading Controls:** Presale mode restricts trading
 - **Locked Tokens:** 950,000 tokens are locked in contract
 - **No Mint/Burn:** Minting and burning are disabled
@@ -95,5 +94,5 @@ We follow responsible disclosure practices:
 
 ---
 
-**Last Updated:** 2024
+**Last Updated:** 2026-10-01
 

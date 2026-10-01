@@ -6,22 +6,28 @@ on:
       contract_address:
         description: 'Contract address to verify'
         required: true
+      owner_address:
+        description: 'Constructor argument: owner address (Gnosis Safe)'
+        required: true
       network:
         description: 'Network (polygon or amoy)'
         required: true
         default: 'polygon'
+
+permissions:
+  contents: read
 
 jobs:
   verify:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
 
     - name: Install dependencies
@@ -34,6 +40,10 @@ jobs:
       env:
         POLYGONSCAN_API_KEY: ${{ secrets.POLYGONSCAN_API_KEY }}
         POLYGON_RPC_URL: ${{ secrets.POLYGON_RPC_URL }}
+        NETWORK: ${{ github.event.inputs.network }}
+        CONTRACT_ADDRESS: ${{ github.event.inputs.contract_address }}
+        OWNER_ADDRESS: ${{ github.event.inputs.owner_address }}
       run: |
-        npx hardhat verify --network ${{ github.event.inputs.network }} ${{ github.event.inputs.contract_address }}
+        # Inputs go through env vars (not inline ${{ }}) to avoid shell injection
+        npx hardhat verify --network "$NETWORK" "$CONTRACT_ADDRESS" "$OWNER_ADDRESS"
 

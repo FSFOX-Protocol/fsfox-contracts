@@ -114,3 +114,120 @@ You can set up incentive programs for users to provide Liquidity (LP Staking). T
 
 These actions will transform FSFOX from an "Unknown Token" to a "Verified Token".
 
+---
+
+## 🧭 Part 5: Practical Playbook for TrustWallet + Token Lists
+
+This section is an execution checklist so users can discover FSFOX faster in wallets and swaps.
+
+### A) Trust Wallet Assets (Primary Source for Logo)
+
+**Token Contract (Polygon):** `0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B`  
+**Network Folder:** `blockchains/polygon/assets/0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B/`
+
+**Required files:**
+- `logo.png` (exactly 256x256, PNG, transparent background recommended)
+- `info.json` (token metadata)
+
+**Suggested `info.json` template:**
+
+```json
+{
+  "name": "FSFOX",
+  "website": "https://YOUR_WEBSITE",
+  "description": "FSFOX token on Polygon",
+  "explorer": "https://polygonscan.com/token/0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B",
+  "type": "ERC20",
+  "symbol": "FSFOX",
+  "decimals": 18,
+  "status": "active",
+  "id": "0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B",
+  "links": [
+    {
+      "name": "twitter",
+      "url": "https://twitter.com/YOUR_HANDLE"
+    },
+    {
+      "name": "telegram",
+      "url": "https://t.me/YOUR_GROUP"
+    }
+  ]
+}
+```
+
+**Execution steps:**
+1. Fork `trustwallet/assets`.
+2. Add the folder and files above.
+3. Ensure address is checksum format (already valid in this guide).
+4. Open PR with clear title: `Add FSFOX token assets on Polygon`.
+5. Respond to reviewer comments quickly to avoid stale PR.
+
+### B) Token Lists (Critical for Discoverability)
+
+Adding logo is not enough. You should also submit FSFOX to token lists used by wallets, DEX frontends, and aggregators.
+
+#### 1) Uniswap Token Lists
+
+- Standard format is JSON, each token entry includes:
+  - `chainId`: `137`
+  - `address`: `0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B`
+  - `symbol`: `FSFOX`
+  - `name`: `FSFOX`
+  - `decimals`: `18`
+  - `logoURI`: raw link to your `logo.png`
+
+**Token object example:**
+
+```json
+{
+  "chainId": 137,
+  "address": "0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B",
+  "symbol": "FSFOX",
+  "name": "FSFOX",
+  "decimals": 18,
+  "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/polygon/assets/0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B/logo.png"
+}
+```
+
+#### 2) 1inch / Aggregator Lists
+
+- Submit to their token list repositories/forms.
+- Requirements are usually:
+  - verified contract,
+  - enough on-chain liquidity,
+  - functioning logo URI,
+  - no suspicious token behavior.
+
+#### 3) Polygon Ecosystem Lists
+
+- Submit FSFOX to Polygon-focused list repos and discovery portals.
+- Use the same metadata as Uniswap entry to avoid mismatch across sources.
+
+#### 4) CoinGecko (for broad indexing)
+
+- Cost is free, but review is strict.
+- Prepare before submission:
+  - official website,
+  - socials,
+  - active market pair(s),
+  - consistent token info across all platforms.
+
+### C) Recommended Submission Order
+
+1. Trust Wallet PR (logo + metadata)  
+2. Polygonscan token info update  
+3. Uniswap-compatible token list PR  
+4. 1inch / aggregator listing request  
+5. CoinGecko request when liquidity/volume is stable
+
+### D) Fast Validation Checklist (Before Any PR/Form)
+
+- Contract address is exactly the same everywhere (checksum).
+- Symbol/name/decimals are consistent in all forms and JSON files.
+- `logo.png` is 256x256 and accessible via direct URL.
+- `logoURI` resolves publicly (no private GitHub link).
+- Explorer link points to Polygon token page.
+- Project website and socials are live.
+
+If these are consistent, wallet discovery and UI logo rendering becomes much faster and with fewer rejections.
+
