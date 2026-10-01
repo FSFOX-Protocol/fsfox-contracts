@@ -4,17 +4,33 @@ require("dotenv").config();
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
-    version: "0.8.19",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200,
+    // FSFOXToken is deployed with 0.8.19 / optimizer 200 - keep these settings
+    // unchanged so its bytecode stays reproducible for Polygonscan verification.
+    // FSFOXVesting depends on OpenZeppelin v5 which needs >=0.8.20.
+    compilers: [
+      {
+        version: "0.8.19",
+        settings: { optimizer: { enabled: true, runs: 200 } },
+      },
+      {
+        version: "0.8.24",
+        settings: { optimizer: { enabled: true, runs: 200 }, evmVersion: "paris" },
+      },
+    ],
+    // Without this Hardhat picks the newest compatible compiler (0.8.24) for the
+    // token too, which changes its metadata hash vs. the deployed contract.
+    overrides: {
+      "contracts/FSFOXToken.sol": {
+        version: "0.8.19",
+        settings: { optimizer: { enabled: true, runs: 200 } },
       },
     },
   },
   networks: {
     hardhat: {
       chainId: 1337,
+      // Optional mainnet fork for dry-runs (scripts/simulate/*): FORK_URL=<rpc> npx hardhat run ...
+      ...(process.env.FORK_URL ? { forking: { url: process.env.FORK_URL } } : {}),
     },
     polygon: {
       url: process.env.POLYGON_RPC_URL || "https://polygon-rpc.com",

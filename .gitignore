@@ -52,3 +52,4 @@ scripts/generate/generateCollectFeesCalldata.js
 scripts/operations/collectFees.js
 scripts/check/checkOldContractsStatus.js
 scripts/operations/burnOldContractTokens.js
+vesting-safe-batch.json

@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- `FSFOXVesting` (OpenZeppelin `VestingWalletCliff` wrapper), tests, deploy script, Safe batch generator and a mainnet-fork dry-run for moving the locked supply into a 6-month-cliff / 36-month vesting wallet. See `docs/guides/safe/VESTING_PLAN.md` (not executed on-chain yet).
+
+### Changed
+- Hardhat now compiles with 0.8.19 (token, pinned via `overrides` so its bytecode still matches the deployed contract) and 0.8.24 (vesting).
+
+## [Unreleased]
+
+### Added
 - Project structure review and improvements
 - LICENSE file (MIT)
 - SECURITY.md policy
