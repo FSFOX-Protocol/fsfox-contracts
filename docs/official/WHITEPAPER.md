@@ -1,16 +1,16 @@
 # FSFOX Protocol Whitepaper
 
-**Version:** 1.0  
-**Date:** December 2025  
+**Version:** 1.1  
+**Date:** October 2026 (v1.0: December 2025)  
 **Network:** Polygon Mainnet  
 
 ---
 
 ## 1. Executive Summary
 
-FSFOX is a decentralized utility token deployed on the Polygon Mainnet, designed to provide stable, accessible, and deep liquidity for users. Unlike many tokens that rely on a single trading pair, FSFOX employs a **Tri-Pool Liquidity Strategy**, pairing the token with **USDC**, **USDT**, and **PAX Gold (PAXG)**.
+FSFOX is a fixed-supply (1,000,000) ERC-20 token deployed on the Polygon Mainnet. Unlike many tokens that rely on a single trading pair, FSFOX provides liquidity through a **Tri-Pool Strategy**, pairing the token with **USDC**, **USDT**, and **PAX Gold (PAXG)** on Uniswap V3, so users can buy it with whichever of these assets they hold.
 
-This architecture ensures that FSFOX is not only pegged to the stability of the US Dollar but also retains a correlation with the value of Gold, providing a unique hedge against market volatility. The protocol is fully governed by a Multi-Signature Gnosis Safe, ensuring maximum security and eliminating single-point-of-failure risks.
+**FSFOX is not a stablecoin and is not backed by gold or any other asset.** Its price floats freely on the market and is not pegged to the US Dollar or to gold. The PAXG pool lets holders of tokenized gold trade into FSFOX; it does not give FSFOX any gold backing. Ownership of the contract is held by a multi-signature Gnosis Safe.
 
 ---
 
@@ -26,7 +26,7 @@ FSFOX establishes a robust liquidity foundation by creating equal depth across t
 
 ## 3. Tokenomics
 
-The FSFOX tokenomics are designed for long-term stability, with a significant portion of the supply locked to ensure controlled release and market confidence.
+The FSFOX supply is fixed at 1,000,000 tokens. The former locked reserve is held in an on-chain vesting wallet with a fixed release schedule.
 
 ### 3.1 Key Metrics
 - **Token Name:** FSFOX
@@ -37,22 +37,31 @@ The FSFOX tokenomics are designed for long-term stability, with a significant po
 - **Total Supply:** 1,000,000 FSFOX
 
 ### 3.2 Allocation & Distribution
-As of December 2025, the distribution is managed as follows:
+Snapshot read from Polygon mainnet on 2 October 2026 (figures change with trading; always re-check on-chain, see `docs/official/OFFICIAL_INFO.md`):
 
 | Category | Amount (FSFOX) | Percentage | Status |
 |----------|---------------:|-----------:|:-------|
-| **Liquidity Pools** | ~164,200 | 16.4% | Active in DEXs |
-| **Treasury (Safe)** | ~10,200 | 1.0% | Operational Reserves |
-| **Locked Supply** | ~775,600 | 77.6% | Secured in Contract |
+| **Vesting wallet** | 775,506.1 | 77.55% | Locked on a fixed schedule (see 3.3) |
+| **Liquidity pools** | ~142,700 | 14.27% | Active on Uniswap V3 (USDC, USDT, PAXG) |
+| **Treasury (Safe)** | ~10,200 | 1.02% | Operational reserves |
+| **Held by traders / others** | remainder | ~7.16% | Circulating |
 | **Total** | **1,000,000** | **100%** | |
 
-*Note: Locked tokens can only be released via the `unlockTokens()` function, which is strictly controlled by the Gnosis Safe Owner.*
+### 3.3 Vesting of the Reserve
+On 2 October 2026 the entire remaining locked supply (775,506.1 FSFOX) was moved into an on-chain vesting wallet
+([`0xE0236fc0Dd9d63926b20A4B46eb62c2320648d40`](https://polygonscan.com/address/0xE0236fc0Dd9d63926b20A4B46eb62c2320648d40#code), source verified).
+- Nothing is releasable before the cliff on **30 March 2027**.
+- At the cliff the amount accrued linearly since the start (about 127,500 FSFOX) becomes releasable, then release continues linearly until **30 September 2029**.
+- Released tokens can only go to the project Safe. The schedule cannot be accelerated.
+- `unlockTokens()` in the token contract now has nothing left to release (`lockedTokens() == 0`).
+
+Details: `docs/guides/safe/VESTING_PLAN.md`. What the owner can and cannot do: `docs/official/OWNER_POWERS.md`.
 
 ---
 
 ## 4. Liquidity Architecture (The Tri-Pool Strategy)
 
-FSFOX utilizes a unique liquidity approach by maintaining three equal-weight pools on Uniswap V3 and QuickSwap V3.
+FSFOX maintains three pools of roughly equal size, all Uniswap V3 pools on Polygon (any Uniswap V3-compatible interface or aggregator can route through them).
 
 ### 4.1 The Pools
 1.  **FSFOX / USDC (PoS Bridge):**
@@ -60,16 +69,18 @@ FSFOX utilizes a unique liquidity approach by maintaining three equal-weight poo
     -   *Venue:* Uniswap V3.
 2.  **FSFOX / USDT:**
     -   Ensures accessibility for users holding Tether.
-    -   *Venue:* QuickSwap V3.
+    -   *Venue:* Uniswap V3.
 3.  **FSFOX / PAXG (Pax Gold):**
-    -   Backs the liquidity with Gold-pegged assets.
-    -   *Venue:* QuickSwap V3.
+    -   Lets holders of tokenized gold (PAXG) trade into FSFOX. This does not back FSFOX with gold.
+    -   *Venue:* Uniswap V3.
 
 ### 4.2 Strategic Advantage
-By balancing liquidity equally across these three pools, FSFOX allows for:
--   **Reduced Slippage:** Deep liquidity in multiple pairs.
--   **Arbitrage Efficiency:** Traders can capitalize on price differences between Dollar-pegged and Gold-pegged pairs, naturally stabilizing the FSFOX price.
--   **Resilience:** The token is not solely dependent on the performance or de-pegging risks of a single stablecoin.
+Balancing liquidity across three pools allows for:
+-   **Access:** users can buy FSFOX with USDC, USDT or PAXG.
+-   **Arbitrage:** traders can close price differences between the pools, which keeps the three prices close to each other (it does not fix the FSFOX price).
+-   **Resilience:** the token is not solely dependent on a single pair or stablecoin.
+
+**Liquidity is currently small** (on the order of a few hundred US dollars per pool; all positions are full-range). Large trades will move the price significantly. See `docs/official/OFFICIAL_INFO.md` for current figures.
 
 ---
 
@@ -77,14 +88,16 @@ By balancing liquidity equally across these three pools, FSFOX allows for:
 
 Security is the cornerstone of the FSFOX Protocol.
 
-### 5.1 Immutable Ownership
-The ownership of the FSFOX contract and all liquidity positions (NFTs) is held by a **Gnosis Safe (Multi-Sig Wallet)**.
+### 5.1 Ownership
+The owner of the FSFOX contract and of all liquidity positions (NFTs) is a **Gnosis Safe (multi-signature wallet)**. The owner address is immutable in the contract (it can be neither changed nor formally renounced).
 -   **Safe Address:** `0x5Dbf15e9FB912eC6AF8F4Bd496EF45B2C38aB130`
 
 ### 5.2 Trustless Operations
--   **No Single Private Key:** Critical functions (minting, burning, unlocking, upgrading) require consensus from multiple signers.
--   **Liquidity Locking:** The Liquidity Provider (LP) NFT positions are stored within the Safe, ensuring that liquidity cannot be "rugged" or removed by a single malicious actor.
--   **Verified Contracts:** All smart contracts are fully verified on Polygonscan.
+-   **No single private key:** every owner action requires the Safe's signers (2 of 2 at the time of writing; the signer set can change).
+-   **Minimal contract:** the token has no mint, burn, blacklist, fee or pause function and is not upgradeable. See `docs/official/OWNER_POWERS.md` for every owner-only function and its current effect.
+-   **Liquidity positions are held by the Safe, not time-locked.** They cannot be moved by a single key, but the signers could remove liquidity.
+-   **Verified contracts:** the token and the vesting wallet are source-verified on Polygonscan.
+-   **No independent audit yet.**
 
 ---
 
@@ -96,9 +109,10 @@ The ownership of the FSFOX contract and all liquidity positions (NFTs) is held b
 -   Initial Liquidity Provision.
 
 ### Phase 2: Expansion (Completed) ✅
--   Creation of FSFOX/PAXG Pool (Gold backing).
+-   Creation of FSFOX/PAXG Pool.
 -   Creation of FSFOX/USDT Pool.
 -   Balancing Liquidity across all three pools.
+-   Locked reserve moved into an on-chain vesting wallet (October 2026).
 -   Full Public Trading Enabled.
 -   Token List Integration (Github).
 
@@ -112,5 +126,5 @@ The ownership of the FSFOX contract and all liquidity positions (NFTs) is held b
 
 ## 7. Disclaimer
 
-*This Whitepaper is for informational purposes only and does not constitute financial advice. Cryptocurrency investments carry inherent risks. Users should conduct their own research (DYOR) before interacting with the protocol.*
+*This Whitepaper is for informational purposes only and does not constitute financial advice. FSFOX is not a stablecoin, is not backed by any asset, and its price can fall to zero. Liquidity is thin and the contracts have not been independently audited. Cryptocurrency investments carry inherent risks. Users should conduct their own research (DYOR) before interacting with the protocol.*
 
