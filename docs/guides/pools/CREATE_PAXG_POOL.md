@@ -37,7 +37,7 @@ This guide is for creating FSFOX/PAXG Pool on QuickSwap V3 with:
 ### Step 1: Calculate Price and Amounts
 
 ```bash
-npx hardhat run scripts/calculatePAXGPoolPrice.js --network polygon
+npx hardhat run scripts/utils/calculatePAXGPoolPrice.js --network polygon
 ```
 
 **Output:**
@@ -52,7 +52,7 @@ npx hardhat run scripts/calculatePAXGPoolPrice.js --network polygon
 ### Step 2: Create Pool
 
 ```bash
-npx hardhat run scripts/createPAXGPool.js --network polygon
+npx hardhat run scripts/operations/createPAXGPool.js --network polygon
 ```
 
 **This Script:**
@@ -81,7 +81,7 @@ npx hardhat run scripts/createPAXGPool.js --network polygon
 
 3. Run:
    ```bash
-   npx hardhat run scripts/addPAXGLiquidity.js --network polygon
+   npx hardhat run scripts/operations/addPAXGLiquidity.js --network polygon
    ```
 
 **Option 2: From QuickSwap UI**

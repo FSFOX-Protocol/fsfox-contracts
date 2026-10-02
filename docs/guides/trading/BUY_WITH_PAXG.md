@@ -58,7 +58,7 @@ If you want to buy FSFOX:
 
 **Script for Buying with USDC:**
 ```bash
-npx hardhat run scripts/buyFSFOX.js --network polygon
+npx hardhat run scripts/operations/buyFSFOX.js --network polygon
 ```
 
 ---

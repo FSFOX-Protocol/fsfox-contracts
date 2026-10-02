@@ -2,17 +2,17 @@
   "name": "FSFOX Official Token List",
   "version": {
     "major": 1,
-    "minor": 0,
+    "minor": 1,
     "patch": 0
   },
-  "timestamp": "2025-01-24T00:00:00.000Z",
+  "timestamp": "2026-10-02T08:40:10.000Z",
   "tags": {
     "official": {
       "name": "Official",
-      "description": "Official FSFOX token list - only includes the current active contract"
+      "description": "Official FSFOX token list, only includes the current active contract"
     }
   },
-  "logoURI": "https://polygonscan.com/images/svg/brands/polygon.svg",
+  "logoURI": "https://raw.githubusercontent.com/FSFOX-Protocol/fsfox-token-list/main/logo/fsfox-256.png",
   "keywords": [
     "fsfox",
     "polygon",
@@ -25,7 +25,7 @@
       "name": "FSFOX",
       "symbol": "FSFOX",
       "decimals": 18,
-      "logoURI": "https://polygonscan.com/images/svg/brands/polygon.svg"
+      "logoURI": "https://raw.githubusercontent.com/FSFOX-Protocol/fsfox-token-list/main/logo/fsfox-256.png"
     },
     {
       "chainId": 137,
@@ -42,7 +42,14 @@
       "symbol": "PAXG",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/9519/small/paxg.png"
+    },
+    {
+      "chainId": 137,
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "name": "(PoS) Tether USD",
+      "symbol": "USDT",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/325/small/Tether.png"
     }
   ]
 }
-

@@ -28,7 +28,7 @@ POST https://trading-api-labs.interface.gateway.uniswap.org/v1/quote
 
 **Quick Solution:** Use Script `buyFSFOX.js`:
 ```bash
-npx hardhat run scripts/buyFSFOX.js --network polygon
+npx hardhat run scripts/operations/buyFSFOX.js --network polygon
 ```
 
 **Or:** Wait for Pool to be indexed in API (usually 1-24 hours)

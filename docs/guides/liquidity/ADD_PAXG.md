@@ -79,7 +79,7 @@ After FSFOX and PAXG are in Safe:
 
 ```bash
 # Generate Calldata
-npx hardhat run scripts/generatePAXGLiquidityCalldata.js --network polygon
+npx hardhat run scripts/generate/generatePAXGLiquidityCalldata.js --network polygon
 ```
 
 Then from Safe:
@@ -124,13 +124,13 @@ You can transfer more:
 ### Check Balance:
 
 ```bash
-npx hardhat run scripts/checkPoolStatus.js --network polygon
+npx hardhat run scripts/check/checkPoolStatus.js --network polygon
 ```
 
 ### Generate Calldata:
 
 ```bash
-npx hardhat run scripts/generatePAXGLiquidityCalldata.js --network polygon
+npx hardhat run scripts/generate/generatePAXGLiquidityCalldata.js --network polygon
 ```
 
 ---

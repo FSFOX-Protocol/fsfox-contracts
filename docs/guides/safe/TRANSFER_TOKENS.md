@@ -1,5 +1,8 @@
 # Guide to Transferring FSFOX Tokens to Safe
 
+> **Historical guide (written 2025-11).** The amounts below were accurate at that time. `unlockTokens()` now has nothing left to release:
+> the remaining locked supply is in the vesting wallet (see `docs/guides/safe/VESTING_PLAN.md`). Current balances: `docs/official/OFFICIAL_INFO.md`.
+
 **Date:** 2025-11-01
 
 ---
@@ -117,12 +120,12 @@ We can create a Script to Remove Liquidity.
 ### Check Status:
 
 ```bash
-npx hardhat run scripts/checkTokenStatus.js --network polygon
+npx hardhat run scripts/check/checkTokenStatus.js --network polygon
 ```
 
 ### Auto Unlock (Requires PRIVATE_KEY):
 
-You can use `scripts/distributeToPartners.js` as a template.
+You can use `scripts/operations/distributeToPartners.js` as a template.
 
 ---
 

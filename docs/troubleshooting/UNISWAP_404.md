@@ -61,7 +61,7 @@ If you don't want to wait, use Script directly:
 ### Step 2: Run Script
 
 ```bash
-npx hardhat run scripts/buyFSFOX.js --network polygon
+npx hardhat run scripts/operations/buyFSFOX.js --network polygon
 ```
 
 **This Script:**
@@ -162,7 +162,7 @@ To check if Pool is still not indexed, run this Script:
 
 ```bash
 # Create checkPoolStatus.js (if missing)
-npx hardhat run scripts/checkPoolStatus.js --network polygon
+npx hardhat run scripts/check/checkPoolStatus.js --network polygon
 ```
 
 Or directly in Terminal:
@@ -212,7 +212,7 @@ If after few days Pool still 404s in Uniswap API:
 
 1. **Run Check Script:**
    ```bash
-   npx hardhat run scripts/checkUniswapAPI.js --network polygon
+   npx hardhat run scripts/check/checkUniswapAPI.js --network polygon
    ```
    
    This script:

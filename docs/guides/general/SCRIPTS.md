@@ -1,5 +1,9 @@
 # Comprehensive Guide to All Scripts
 
+> **Note (2026-10-02):** this guide predates several scripts and still lists a few that were removed (marked below).
+> The authoritative, current list is `scripts/README.md`. Newer scripts: USDT/PAXG pool and liquidity scripts in `scripts/operations/`,
+> and the vesting tooling (`scripts/deployment/deployVesting.js`, `scripts/generate/generateVestingBatch.js`, `scripts/simulate/forkVestingPlan.js`; see `docs/guides/safe/VESTING_PLAN.md`).
+
 **Date:** 2025-11-01
 
 ---
@@ -13,7 +17,7 @@
 
 **Usage:**
 ```bash
-npx hardhat run scripts/deploy.js --network polygon
+npx hardhat run scripts/deployment/deploy.js --network polygon
 ```
 
 **Functionality:**
@@ -32,7 +36,7 @@ npx hardhat run scripts/deploy.js --network polygon
 
 **Usage:**
 ```bash
-npx hardhat run scripts/deployNewOwner.js --network polygon
+npx hardhat run scripts/deployment/deployNewOwner.js --network polygon
 ```
 
 **Functionality:**
@@ -40,7 +44,7 @@ npx hardhat run scripts/deployNewOwner.js --network polygon
 
 ---
 
-#### 3. createPool.js
+#### 3. createPool.js _(removed: no longer in the repository)_
 **Goal:** Create Uniswap V3 Pool.
 
 **Usage:**
@@ -65,7 +69,7 @@ npx hardhat run scripts/createPool.js --network polygon
 
 **Usage:**
 ```bash
-npx hardhat run scripts/buyFSFOX.js --network polygon
+npx hardhat run scripts/operations/buyFSFOX.js --network polygon
 ```
 
 **Functionality:**
@@ -87,7 +91,7 @@ npx hardhat run scripts/buyFSFOX.js --network polygon
 
 **Usage:**
 ```bash
-npx hardhat run scripts/retryBuyWithHigherGas.js --network polygon
+npx hardhat run scripts/operations/retryBuyWithHigherGas.js --network polygon
 ```
 
 **Functionality:**
@@ -101,7 +105,7 @@ npx hardhat run scripts/retryBuyWithHigherGas.js --network polygon
 
 ---
 
-#### 6. testSwapDirect.js
+#### 6. testSwapDirect.js _(removed: no longer in the repository)_
 **Goal:** Direct Swap Test.
 
 **Usage:**
@@ -122,7 +126,7 @@ npx hardhat run scripts/testSwapDirect.js --network polygon
 
 **Usage:**
 ```bash
-npx hardhat run scripts/addLiquidity.js --network polygon
+npx hardhat run scripts/operations/addLiquidity.js --network polygon
 ```
 
 **Settings:**
@@ -148,7 +152,7 @@ const AMOUNT_FSFOX = "";  // Empty = Auto-calculate
 
 **Usage:**
 ```bash
-npx hardhat run scripts/generateLiquidityCalldata.js --network polygon
+npx hardhat run scripts/generate/generateLiquidityCalldata.js --network polygon
 ```
 
 **Functionality:**
@@ -176,7 +180,7 @@ const AMOUNT_FSFOX = ""; // Empty = Auto-calculate
 
 **Usage:**
 ```bash
-npx hardhat run scripts/checkPoolStatus.js --network polygon
+npx hardhat run scripts/check/checkPoolStatus.js --network polygon
 ```
 
 **Output:**
@@ -195,7 +199,7 @@ npx hardhat run scripts/checkPoolStatus.js --network polygon
 
 **Usage:**
 ```bash
-npx hardhat run scripts/checkPoolRatio.js --network polygon
+npx hardhat run scripts/check/checkPoolRatio.js --network polygon
 ```
 
 **Output:**
@@ -213,7 +217,7 @@ npx hardhat run scripts/checkPoolRatio.js --network polygon
 
 **Usage:**
 ```bash
-npx hardhat run scripts/checkPresaleState.js --network polygon
+npx hardhat run scripts/check/checkPresaleState.js --network polygon
 ```
 
 **Output:**
@@ -232,7 +236,7 @@ npx hardhat run scripts/checkPresaleState.js --network polygon
 
 **Usage:**
 ```bash
-npx hardhat run scripts/checkUniswapAPI.js --network polygon
+npx hardhat run scripts/check/checkUniswapAPI.js --network polygon
 ```
 
 **Output:**
@@ -251,7 +255,7 @@ npx hardhat run scripts/checkUniswapAPI.js --network polygon
 
 **Usage:**
 ```bash
-npx hardhat run scripts/checkWallet.js --network polygon
+npx hardhat run scripts/check/checkWallet.js --network polygon
 ```
 
 **Output:**
@@ -270,7 +274,7 @@ npx hardhat run scripts/checkWallet.js --network polygon
 
 **Usage:**
 ```bash
-npx hardhat run scripts/checkSetSpender.js --network polygon
+npx hardhat run scripts/check/checkSetSpender.js --network polygon
 ```
 
 **Functionality:**
@@ -284,7 +288,7 @@ npx hardhat run scripts/checkSetSpender.js --network polygon
 
 **Usage:**
 ```bash
-npx hardhat run scripts/checkOldContracts.js --network polygon
+npx hardhat run scripts/check/checkOldContracts.js --network polygon
 ```
 
 **Functionality:**
@@ -300,7 +304,7 @@ npx hardhat run scripts/checkOldContracts.js --network polygon
 
 **Usage:**
 ```bash
-npx hardhat run scripts/distributeToPartners.js --network polygon
+npx hardhat run scripts/operations/distributeToPartners.js --network polygon
 ```
 
 **Settings:**
@@ -325,7 +329,7 @@ const PARTNERS = [
 
 ### 🔧 Helper Scripts
 
-#### 17. generateMintCalldata.js
+#### 17. generateMintCalldata.js _(removed: no longer in the repository)_
 **Goal:** Generate Calldata for Mint (Add Liquidity).
 
 **Usage:**
@@ -339,7 +343,7 @@ npx hardhat run scripts/generateMintCalldata.js --network polygon
 
 ---
 
-#### 18. prepareSafeCalldata.js
+#### 18. prepareSafeCalldata.js _(removed: no longer in the repository)_
 **Goal:** Generate Calldata for Safe (setPool + Approve + Mint).
 
 **Usage:**
@@ -353,7 +357,7 @@ npx hardhat run scripts/prepareSafeCalldata.js --network polygon
 
 ---
 
-#### 19. transferOwnership.js
+#### 19. transferOwnership.js _(removed: no longer in the repository)_
 **Goal:** Check Transfer Ownership possibility.
 
 **Usage:**
@@ -367,7 +371,7 @@ npx hardhat run scripts/transferOwnership.js --network polygon
 
 ---
 
-#### 20. testBuySell.js
+#### 20. testBuySell.js _(removed: no longer in the repository)_
 **Goal:** Test Buy and Sell.
 
 **Usage:**
@@ -459,32 +463,32 @@ POLYGONSCAN_API_KEY=your_api_key
 ### For Status Check:
 ```bash
 # General Check
-npx hardhat run scripts/checkPoolStatus.js --network polygon
+npx hardhat run scripts/check/checkPoolStatus.js --network polygon
 
 # Check Ratio
-npx hardhat run scripts/checkPoolRatio.js --network polygon
+npx hardhat run scripts/check/checkPoolRatio.js --network polygon
 ```
 
 ### For Buying:
 ```bash
 # Direct Buy
-npx hardhat run scripts/buyFSFOX.js --network polygon
+npx hardhat run scripts/operations/buyFSFOX.js --network polygon
 ```
 
 ### For Adding Liquidity:
 ```bash
 # Generate Calldata (for Safe)
-npx hardhat run scripts/generateLiquidityCalldata.js --network polygon
+npx hardhat run scripts/generate/generateLiquidityCalldata.js --network polygon
 
 # Or Direct (if Owner)
-npx hardhat run scripts/addLiquidity.js --network polygon
+npx hardhat run scripts/operations/addLiquidity.js --network polygon
 ```
 
 ---
 
 ## 🔗 Related Links
 
-- **User Guide:** `docs/USER_GUIDE.md`
+- **User Guide:** `docs/guides/general/USER_GUIDE.md`
 - **Official Info:** `docs/OFFICIAL_INFO.md`
 - **Safe Guide:** `docs/GNOSIS_SAFE_TRANSACTIONS.md`
 - **Liquidity Guide:** `docs/INCREASE_LIQUIDITY_GUIDE.md`

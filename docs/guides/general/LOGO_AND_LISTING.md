@@ -1,5 +1,9 @@
 # Guide to Adding Logo and Listing Strategy for FSFOX
 
+> **Status (2026-10-02):** the FSFOX logo is in https://github.com/FSFOX-Protocol/fsfox-token-list (`logo/fsfox-256.png`, 256x256, and `logo/fsfox-512.png`).
+> The official token list (v1.1.0) uses it and validates against the Uniswap token-lists schema; it includes FSFOX, USDC (PoS), PAXG and USDT.
+> The Trust Wallet / CoinGecko / CoinMarketCap submissions below are still to be done.
+
 This guide is divided into two parts:
 1. **How to add a Logo (Icon) to FSFOX token?**
 2. **Strategy for introducing the token to DEXs and Exchanges**

@@ -123,7 +123,7 @@ Go to https://quickswap.exchange/swap
 
 **Check Status:**
 ```bash
-npx hardhat run scripts/checkPresaleState.js --network polygon
+npx hardhat run scripts/check/checkPresaleState.js --network polygon
 ```
 
 ---

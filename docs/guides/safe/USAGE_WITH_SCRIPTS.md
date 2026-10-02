@@ -26,7 +26,7 @@ If you are one of the Safe Signers:
 
 2. **Run the Script:**
    ```bash
-   npx hardhat run scripts/addLiquidity.js --network polygon
+   npx hardhat run scripts/operations/addLiquidity.js --network polygon
    ```
 
 **⚠️ Note:** The script must check the Signer as an Owner. If your Signer is not the Owner:

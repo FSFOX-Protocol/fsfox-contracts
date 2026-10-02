@@ -7,7 +7,7 @@
 ## 🔍 Method 1: Use Script (Easiest)
 
 ```bash
-npx hardhat run scripts/getPAXGPoolAddress.js --network polygon
+npx hardhat run scripts/utils/getPAXGPoolAddress.js --network polygon
 ```
 
 This script:
@@ -80,7 +80,7 @@ const POOL_PAXG = "0x375c88e92b60e6eafA2369C51065117603B22988";
 After finding the address, you can check the Pool status:
 
 ```bash
-npx hardhat run scripts/checkPAXGPoolExists.js --network polygon
+npx hardhat run scripts/check/checkPAXGPoolExists.js --network polygon
 ```
 
 This script:

@@ -30,7 +30,7 @@ The `GS013` error in Gnosis Safe usually means:
 ### 1. Check MATIC Balance:
 
 ```bash
-npx hardhat run scripts/checkSafeBalance.js --network polygon
+npx hardhat run scripts/check/checkSafeBalance.js --network polygon
 ```
 
 **Check Result:**
@@ -56,7 +56,7 @@ Possible Issue: Incorrect Calldata or Factory cannot create Pool.
 **Solution:**
 ```bash
 # Check existing Pool
-npx hardhat run scripts/generatePAXGPoolCalldata.js --network polygon
+npx hardhat run scripts/generate/generatePAXGPoolCalldata.js --network polygon
 ```
 
 ---
@@ -92,7 +92,7 @@ If Pool already exists, you must Initialize directly:
 
 ```bash
 # Check Pool
-npx hardhat run scripts/generatePAXGPoolCalldata.js --network polygon
+npx hardhat run scripts/generate/generatePAXGPoolCalldata.js --network polygon
 ```
 
 If Pool exists, just perform Initialize.
@@ -106,7 +106,7 @@ If you can use MetaMask:
 1. Set PRIVATE_KEY in `.env`
 2. Run Script:
    ```bash
-   npx hardhat run scripts/createPAXGPool.js --network polygon
+   npx hardhat run scripts/operations/createPAXGPool.js --network polygon
    ```
 
 **Note:** This method only works if you are an Owner.

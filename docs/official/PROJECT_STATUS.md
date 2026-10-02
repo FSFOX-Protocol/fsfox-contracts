@@ -28,6 +28,8 @@ The FSFOX project is successfully deployed on Polygon Mainnet and ready for use.
 
 ## 📊 Pool Info
 
+> Pool amounts in this section are the on-chain values read on 2026-10-02. The completed-transactions list further below is a historical log (amounts at the time of each step).
+
 ### Pool 1: FSFOX / USDC PoS Bridge
 
 **Pool Address:**
@@ -40,8 +42,8 @@ The FSFOX project is successfully deployed on Polygon Mainnet and ready for use.
 - **Token0:** `0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174` (USDC PoS Bridge)
 - **Token1:** `0xe5C72a59981d3c19a74DC6144e13f6b244ee5e2B` (FSFOX)
 - **Liquidity:** ✅ Active
-  - **USDC:** 91.997634
-  - **FSFOX:** 86,523.48
+  - **USDC:** ~167.62 (on-chain 2026-10-02)
+  - **FSFOX:** ~47,626.72
 - **Polygonscan:** https://polygonscan.com/address/0xC87A70627546aaDe880fdA3D1Fdd07007c60B5fF
 
 ---
@@ -60,9 +62,9 @@ The FSFOX project is successfully deployed on Polygon Mainnet and ready for use.
 - **Status:** ✅ Created, Initialized, Has Liquidity
 - **In Allowlist:** ✅ Yes
 - **Liquidity:** ✅ Active
-  - **PAXG:** ~0.0348
-  - **FSFOX:** ~54,499.87
-- **NFT Position:** ✅ In Safe (Token ID: 2751156)
+  - **PAXG:** ~0.0399 (on-chain 2026-10-02)
+  - **FSFOX:** ~47,735.20
+- **NFT Positions:** ✅ In Safe (Token IDs: 2751156, 2786778), full range
 - **Polygonscan:** https://polygonscan.com/address/0x375c88e92b60e6eafA2369C51065117603B22988
 - **QuickSwap:** https://quickswap.exchange/pools/0x375c88e92b60e6eafA2369C51065117603B22988
 
@@ -82,8 +84,9 @@ The FSFOX project is successfully deployed on Polygon Mainnet and ready for use.
 - **Status:** ✅ Created, Initialized, Has Liquidity
 - **In Allowlist:** ✅ Yes
 - **Liquidity:** ✅ Active
-  - **USDT:** ~144.17
-  - **FSFOX:** ~55,206.97
+  - **USDT:** ~168.14 (on-chain 2026-10-02)
+  - **FSFOX:** ~47,322.75
+- **NFT Position:** ✅ In Safe (Token ID: 2786819), full range
 - **Polygonscan:** https://polygonscan.com/address/0x4E06f9f368c27962431c508423263B899f8AF4bD
 - **QuickSwap:** https://quickswap.exchange/pools/0x4E06f9f368c27962431c508423263B899f8AF4bD
 
@@ -187,7 +190,7 @@ All necessary transactions completed successfully:
 - ✅ Use Direct Swap Script: `npx hardhat run scripts/operations/buyFSFOX.js --network polygon`
 - 📧 Contact Uniswap Support
 
-**Guide:** See `guides/troubleshooting/UNISWAP_404.md`
+**Guide:** See `docs/troubleshooting/UNISWAP_404.md`
 
 ---
 
@@ -318,7 +321,7 @@ All docs organized in `docs/`:
 
 - 📋 `docs/README.md` - Index
 - 🎯 `docs/official/OFFICIAL_INFO.md` - Official Info
-- 👥 `docs/USER_GUIDE.md` - User Guide
+- 👥 `docs/guides/general/USER_GUIDE.md` - User Guide
 - 📝 `docs/guides/general/TOKEN_LIST_GUIDE.md` - Token List Guide
 - 🔐 `docs/guides/safe/GNOSIS_SAFE_TRANSACTIONS.md` - Safe Guide
 
@@ -389,8 +392,8 @@ All docs organized in `docs/`:
 - NFT #2740509: Pool FSFOX/USDC
 - NFT #2743939: Pool FSFOX/USDC
 - NFT #2751156: Pool FSFOX/PAXG
-- NFT #2786753: Pool FSFOX/PAXG (increased liquidity)
-- NFT: Pool FSFOX/USDT (new pool)
+- NFT #2786778: Pool FSFOX/PAXG (increased liquidity)
+- NFT #2786819: Pool FSFOX/USDT
 
 **Final Status:** Project is fully launched and Presale restrictions are lifted.
 

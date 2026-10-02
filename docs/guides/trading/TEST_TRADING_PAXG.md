@@ -46,7 +46,7 @@
 #### Method 1: Use Script
 
 ```bash
-npx hardhat run scripts/testTradingWithPAXG.js --network polygon
+npx hardhat run scripts/test/testTradingWithPAXG.js --network polygon
 ```
 
 This Script:
@@ -78,7 +78,7 @@ After testing:
 To check Trading status:
 
 ```bash
-npx hardhat run scripts/checkPresaleState.js --network polygon
+npx hardhat run scripts/check/checkPresaleState.js --network polygon
 ```
 
 **Expected Result after enableTrading():**

@@ -121,7 +121,7 @@ Total Value = 94.99 USD + 47.43 USD = 142.42 USD
 To automatically calculate FSFOX value across all pools:
 
 ```bash
-npx hardhat run scripts/calculateFSFOXValue.js --network polygon
+npx hardhat run scripts/utils/calculateFSFOXValue.js --network polygon
 ```
 
 This Script:

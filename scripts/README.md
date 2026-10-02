@@ -8,6 +8,7 @@ This directory contains all scripts organized by category.
 Scripts for deploying contracts:
 - `deploy.js` - Deploy FSFOX token contract
 - `deployNewOwner.js` - Deploy with new owner (Gnosis Safe)
+- `deployVesting.js` - Deploy the FSFOXVesting wallet (Safe as beneficiary)
 
 ### `check/`
 Scripts for checking contract/pool status:
@@ -33,15 +34,19 @@ Scripts for generating calldata for Safe transactions:
 - `generatePAXGLiquidityCalldata.js` - Generate PAXG liquidity calldata
 - `generatePAXGPoolCalldata.js` - Generate PAXG pool creation calldata
 - `generateTransferNFTCalldata.js` - Generate transfer NFT calldata
+- `generateVestingBatch.js` - Build the Safe batch (unlock + transfer into vesting); validates the on-chain vesting contract
 
 ### `operations/`
 Main operation scripts:
 - `addLiquidity.js` - Add liquidity to pool
 - `addPAXGLiquidity.js` - Add PAXG liquidity
+- `addUSDTLiquidity.js` - Add USDT liquidity
 - `buyFSFOX.js` - Buy FSFOX tokens
 - `buyFSFOXWithPAXG.js` - Buy FSFOX with PAXG
 - `createPAXGPool.js` - Create PAXG pool
+- `createUSDTPool.js` - Create USDT pool
 - `distributeToPartners.js` - Distribute tokens to partners
+- `increasePAXGLiquidity.js` - Increase PAXG liquidity
 - `managePAXGLiquidity.js` - Manage PAXG liquidity
 - `retryBuyWithHigherGas.js` - Retry buy with higher gas
 - `transferNFTsToSafe.js` - Transfer NFTs to Safe
@@ -50,6 +55,7 @@ Main operation scripts:
 ### `test/`
 Test scripts:
 - `testTradingWithPAXG.js` - Test trading with PAXG
+- `testArbitrageUSDTtoUSDC.js` - Arbitrage USDT/USDC pools test
 
 ### `utils/`
 Utility scripts:
@@ -92,3 +98,6 @@ npx hardhat run scripts/operations/addLiquidity.js --network polygon
 - See `docs/guides/general/SCRIPTS.md` for detailed script documentation
 - See `docs/guides/safe/USAGE_WITH_SCRIPTS.md` for Safe usage guide
 
+### `simulate/`
+Dry-runs against a mainnet fork (no real transactions):
+- `forkVestingPlan.js` - Simulate the locked-supply vesting plan (`FORK_URL=<archive Polygon RPC>`)

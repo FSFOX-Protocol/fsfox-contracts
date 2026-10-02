@@ -49,7 +49,7 @@ execution reverted: "STF"
 After the transaction, check the status:
 
 ```bash
-npx hardhat run scripts/checkPAXGPoolAllowed.js --network polygon
+npx hardhat run scripts/check/checkPAXGPoolAllowed.js --network polygon
 ```
 
 **Expected Result:**

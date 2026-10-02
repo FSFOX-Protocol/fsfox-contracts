@@ -42,7 +42,7 @@
 ### Method 2: Use Script
 
 ```bash
-npx hardhat run scripts/findPAXGNFT.js --network polygon
+npx hardhat run scripts/utils/findPAXGNFT.js --network polygon
 ```
 
 This script checks for NFT Position in Safe.
@@ -55,7 +55,7 @@ This script checks for NFT Position in Safe.
 
 #### 1. Generate Calldata:
 
-Open `scripts/generateTransferNFTCalldata.js` and configure:
+Open `scripts/generate/generateTransferNFTCalldata.js` and configure:
 
 ```javascript
 const NFT_TOKEN_IDS = [
@@ -68,7 +68,7 @@ const CURRENT_OWNER = "0x...";  // Wallet address holding the NFT
 #### 2. Run Script:
 
 ```bash
-npx hardhat run scripts/generateTransferNFTCalldata.js --network polygon
+npx hardhat run scripts/generate/generateTransferNFTCalldata.js --network polygon
 ```
 
 #### 3. Use in Safe:
@@ -109,7 +109,7 @@ npx hardhat run scripts/generateTransferNFTCalldata.js --network polygon
 #### 1. Configure Script:
 
 ```javascript
-// in scripts/generateTransferNFTCalldata.js
+// in scripts/generate/generateTransferNFTCalldata.js
 const NFT_TOKEN_IDS = ["1234567"];
 const CURRENT_OWNER = process.env.CURRENT_NFT_OWNER || "0xYourCurrentOwnerAddress";
 ```
@@ -117,7 +117,7 @@ const CURRENT_OWNER = process.env.CURRENT_NFT_OWNER || "0xYourCurrentOwnerAddres
 #### 2. Run:
 
 ```bash
-npx hardhat run scripts/generateTransferNFTCalldata.js --network polygon
+npx hardhat run scripts/generate/generateTransferNFTCalldata.js --network polygon
 ```
 
 #### 3. Output:

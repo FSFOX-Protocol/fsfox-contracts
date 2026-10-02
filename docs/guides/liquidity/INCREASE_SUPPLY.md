@@ -187,7 +187,7 @@ uint256 public constant FREE_SUPPLY = 1_000_000 * 10**decimals;
 ### Step 2: Deploy
 
 ```bash
-npx hardhat run scripts/deploy.js --network polygon
+npx hardhat run scripts/deployment/deploy.js --network polygon
 ```
 
 ### Step 3: Verify

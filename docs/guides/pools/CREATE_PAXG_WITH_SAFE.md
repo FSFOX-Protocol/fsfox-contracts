@@ -25,7 +25,7 @@ To create a Pool with Safe, you must use the **Transaction Builder**.
 ### Step 1: Generate Calldata
 
 ```bash
-npx hardhat run scripts/generatePAXGPoolCalldata.js --network polygon
+npx hardhat run scripts/generate/generatePAXGPoolCalldata.js --network polygon
 ```
 
 This Script:
@@ -80,7 +80,7 @@ After creating Pool, you must Initialize it.
 ```bash
 # Enter Pool Address in Script
 # Then run again
-npx hardhat run scripts/generatePAXGPoolCalldata.js --network polygon
+npx hardhat run scripts/generate/generatePAXGPoolCalldata.js --network polygon
 ```
 
 #### 3.2. Initialize in Safe

@@ -20,7 +20,7 @@
 ### Method 1: Use Script
 
 ```bash
-npx hardhat run scripts/findAllNFTs.js --network polygon
+npx hardhat run scripts/utils/findAllNFTs.js --network polygon
 ```
 
 This script finds all FSFOX-related NFTs.
@@ -43,7 +43,7 @@ This script finds all FSFOX-related NFTs.
 
 #### 1. Configure Script:
 
-Open `scripts/transferNFTsToSafe.js` and set:
+Open `scripts/operations/transferNFTsToSafe.js` and set:
 
 ```javascript
 const NFT_TOKEN_IDS = [
@@ -55,7 +55,7 @@ const NFT_TOKEN_IDS = [
 #### 2. Run Script:
 
 ```bash
-npx hardhat run scripts/transferNFTsToSafe.js --network polygon
+npx hardhat run scripts/operations/transferNFTsToSafe.js --network polygon
 ```
 
 **Note:** Only works if NFTs are in the Signer's address.
@@ -68,7 +68,7 @@ If NFTs are in another wallet or you want to use Safe:
 
 #### 1. Generate Calldata:
 
-Open `scripts/generateTransferNFTCalldata.js` and set:
+Open `scripts/generate/generateTransferNFTCalldata.js` and set:
 
 ```javascript
 const NFT_TOKEN_IDS = [
@@ -82,7 +82,7 @@ const CURRENT_OWNER = "0x...";  // Wallet address holding the NFT
 #### 2. Run Script:
 
 ```bash
-npx hardhat run scripts/generateTransferNFTCalldata.js --network polygon
+npx hardhat run scripts/generate/generateTransferNFTCalldata.js --network polygon
 ```
 
 #### 3. Use Calldata in Safe:
@@ -125,7 +125,7 @@ Use `findAllNFTs.js` or check Polygonscan.
 ### Step 2: Generate Calldata
 
 ```bash
-npx hardhat run scripts/generateTransferNFTCalldata.js --network polygon
+npx hardhat run scripts/generate/generateTransferNFTCalldata.js --network polygon
 ```
 
 ### Step 3: Use in Safe Transaction Builder
@@ -181,7 +181,7 @@ const CURRENT_OWNER = process.env.CURRENT_NFT_OWNER || "0xYourCurrentOwnerAddres
 #### 2. Run:
 
 ```bash
-npx hardhat run scripts/generateTransferNFTCalldata.js --network polygon
+npx hardhat run scripts/generate/generateTransferNFTCalldata.js --network polygon
 ```
 
 #### 3. Use in Safe:
